@@ -1,0 +1,65 @@
+.cotar-box{
+  margin-top:25px;
+
+}
+
+.container{
+  width: 97%;
+}
+
+
+.tl-cor{
+ background: rgba(0, 200,0,0.3);
+
+}
+
+.btn-danger{
+  width: 130px;
+}
+
+
+.ctn-gf{
+  padding-left:0px;
+  margin-left: 0px;
+}
+
+
+#tabela2{
+ width: 550px;
+ margin-top:40px;
+}
+
+
+.main container{
+  width: 100px;
+  height: 100px;
+  margin: 0px;
+}
+
+
+#container-tb-One{
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+
+.panel-heading{
+  color: #333;
+  background-color: #0e1165;
+  border-color: #ddd;
+  padding-left: 20px;
+  font-family: auto;
+  font-size: 30px;
+  font-style: initial;
+  font-weight: 800;
+  color: #FFF;
+  margin-bottom: -10px;
+}
+
+
+.grafis{
+border: 4px solid #0e1165;
+
+}

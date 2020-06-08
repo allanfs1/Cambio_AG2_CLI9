@@ -1,0 +1,1 @@
+export * from './layer-noticiathree.component';

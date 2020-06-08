@@ -1,0 +1,417 @@
+
+<!--Boilerplate do Template básico-->
+  <!-- Header principal -->
+<header class="header" role="banner">
+      <div class="container">
+        <span class="control-menu visible-xs ico-menu-2"></span>
+        <span class="control-sidebar visible-xs ico-list"></span>
+        <h1 class="project-name"><a href="#">Rethorica</a></h1>
+        <a href="#" class="help-suggestions ico-question hidden-xs">Ajuda e Sugestões</a>
+      </div>
+ </header>
+   
+<!-- Menu -->
+<div class="nav-content">
+      <menu class="menu">
+        <ul class="container">
+          <li><a class ="logo-rh-jqy" href="#" role="menuitem">Home</a></li>
+          <li><a class ="logo-rh-jqy" href="#" role="menuitem">Noticias</a>
+            <ul>
+              <li><a [routerLink]="['/cambio/economia']">Economia</a></li>
+              <li><a href="#">Dolar</a></li>
+            </ul>
+          </li>
+          <li><a class ="logo-rh-jqy" href="#" role="menuitem">Info</a></li>
+          <span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+        </ul>
+      </menu>
+      <h2 class="title-sep visible-xs">Mais</h2>
+      <ul class="nav-mob-list visible-xs">
+        <li><a href="#" class="ico-help-circle">Ajuda e sugestões</a></li>
+      </ul>
+    </div>
+    <!-- component Noticias-->
+    <app-layer-noticia-two></app-layer-noticia-two>
+
+     <!--Painel de Noticia-2°-->
+     <div class="panel panel-default">
+         <div class="panel panel-body"> 
+            <div class="col-lg-12">
+              <app-layer-noticiathree></app-layer-noticiathree>
+            </div>
+         </div>
+      </div>
+      
+    <!--Conversor de Moeda-->
+    <div class="container cotar-box">
+      <div class="row">
+        <div class="col-lg-6">
+         <div class="panel panel-default">
+          <div class="panel panel-heading">
+            <strong class="check-bx-ctr-jqry"> {{Modelfixer.usde }} -  {{Modelfixer.uspara}}</strong>
+           </div>
+           <div class="panel panel-body">
+            <div class="row">  
+              <div class="col-lg-9">
+               <h4><span><strong>Escolha uma Moeda para Cotação</strong></span></h4><br>    
+              </div> 
+            </div>
+          </div>
+      </div> 
+  <!--Formulario-->   
+         <div class="row">
+           <div class="col-lg-3">
+              <select  class="btn btn-danger check-box-jequery" 
+              [(ngModel)]="Modelfixer.usde"
+              required> 
+               <option *ngFor="let list of list_moeda" [value]= "list.sigla">
+                  {{list.sigla}}-{{list.descricao}}
+               </option>
+              </select>
+          </div>
+         
+         
+          <div class="col-lg-3">
+              <select id="sl" class="btn btn-danger check-box-jequery" 
+                   [(ngModel)]="Modelfixer.uspara"
+                   required>
+                   <option *ngFor="let list of list_moeda" [value]= "list.sigla" >
+                       {{list.sigla}}-{{list.descricao}}
+                   </option>
+              </select>
+          </div>    
+         </div>
+       
+         <div class="row">
+           <div class="col-lg-3">
+              <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input class ="form-control text-right" 
+                    type="text" 
+                    placeholder="0" 
+                    [value] = "Modelfixer.usde" name="Modelfixer.usde">
+              </div> 
+           </div>
+
+           <div class="col-lg-3">
+               <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input  class ="form-control text-right" 
+                    type="text" 
+                    [value] = "Modelfixer.uspara"
+                    name="Modelfixer.uspara">
+            </div> 
+          </div>
+              <div class="col-lg-6">
+                <div  class="input-group" > 
+                   <span class="input-group-addon"> <span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span></span>
+                   <input class ="form-control" 
+                   [(ngModel)]= "Modelfixer.valor"
+                   regex
+                   type="number"
+                   >
+              </div>
+           
+
+              <div class="input-group" style="margin-top:10px;"> 
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+                </span>
+                <input id ="ipt-valor" class ="form-control" 
+                type="text" 
+                [value]="converte_cotcao()">
+               </div>  
+               <input id="calcular" style="margin-top: 10px;" class ="btn btn-primary" type="submit" value="Calcular"  (click)="registrarService()">
+             </div>
+         
+
+        <!--check-box-->
+        <div style="margin-left:20px;" class="row">
+            <div class="col-lg-8">    
+             <div class="checkbox">
+                <label>
+                  <input id="input" type="checkbox" name="check" [checked]="true" >
+                  Checar casas decimais&mdash;numeros reais
+                </label>
+              </div>
+              <div class="checkbox disabled">
+                <label>
+                  <input type="checkbox" value="" disabled >
+                  Operaçôes  com numeros inteiros
+                </label>
+              </div>
+          </div>
+        </div> 
+     
+             <!-- list box-->
+               <div class="ls-list">
+                    <header class="ls-list-header">
+                       <div class="ls-list-image"><img alt="linux" src="http://developer.locaweb.com.br/assets/edge/img/os/linux.gif"></div>
+                       <div class="ls-list-title">
+                         <!--Select text box-->
+                          <a href="">Identificador</a>
+                          <small>Descrição de plano ou caracsterística do produto e recurso <a href="#" class="ico-question" data-container="body" data-inherit="background-color" data-toggle="popover" data-placement="top" data-content="Um texto bem legal e bonito por aqui." data-title="Título" data-original-title="" title=""></a></small>
+                       </div>
+                    </header>
+                    <div class="ls-list-content ">
+                       <div class="col-xs-6 col-md-2">
+                          <strong class="ls-list-label">Status</strong>
+                          Publicado
+                       </div>
+                       <div class="col-xs-6 col-md-2">
+                          <strong class="ls-list-label">Status</strong>
+                          Publicado
+                       </div>
+                    </div>
+                 </div>
+               
+             <!--historico-->
+             <aside class="col-md-4 sidebar" role="complementary">  
+                    <!--- box info-->
+                 <div class="box-info">
+                   <header>
+                    <h3 class="title-box-info"> Historico</h3>
+                   </header>
+       
+                 <div class="box-info-grid row-fluid">
+                  <div class="col-md-4">
+                     <span class="title-box">Uma unidade {{Modelfixer.usde}} / {{Modelfixer.uspara}}</span>
+                     <strong class="value-box">{{modelcalcular.calk}}</strong>
+                   </div>
+       
+                    <div class="col-md-4">
+                      <span class="title-box">1°</span>
+                      <div *ngIf="i != 0">
+                        <strong class="value-box zero">{{historico[this.i]}}</strong>
+                      </div>
+                      <div *ngIf="i == 0">
+                        <strong class="value-box zero">-/-</strong>
+                      </div>
+                    </div>
+       
+                    <div class="col-md-4">
+                     <span class="title-box zero">2°</span>
+                     <div *ngIf="i != 0">
+                       <strong class="value-box">{{historico[this.i-1]}}</strong>
+                     </div>
+                     <div *ngIf="i == 0">
+                         <strong class="value-box zero">-/-</strong>
+                     </div>
+                   </div>
+       
+                 </div>
+               </div>
+              </aside>
+    
+          </div>           
+        </div>
+       <!--Grafico 1°--> 
+       <div class="col-md-6">
+            <iframe     class= "grafis" height="280" width="650" src="https://ssltvc.forexprostools.com/?pair_ID=2103&height=480&width=650&interval=300&plotStyle=area&domain_ID=30&lang_ID=12&timezone_ID=10"></iframe>       
+       </div>
+      <!--Grafico 2°--> 
+       <div class="row">
+          <div class="col-md-6">
+               <iframe  class= "grafis"  height="480" width="650" src="https://ssltvc.forexprostools.com/?pair_ID=2103&height=480&width=650&interval=300&plotStyle=bars&domain_ID=30&lang_ID=12&timezone_ID=10"></iframe>
+          </div>
+       </div>  
+   </div>      
+
+  <!-- Tabela de Valores  numero 1°-->
+  <div  id ="container-tb-One" class="container cotar-box ">
+    <div class="col-lg-6">
+      <div class="panel panel-default">
+       <div class="panel panel-heading">
+            Cotações
+        </div>
+          <div class="panel panel-body">
+               <main class="main">
+                     <div class="container sidebar">
+                       <div class="row">
+                         <div class="col-md-12 content" role="main"><!-- containner grafico 1-->
+                                <!-- boxSelect info -->
+                              <div class="well hidden well-sm clearfix" data-target="tabela1">
+                                    <p class="d-inline-block">
+                                       <strong class="counterChecks">0</strong> itens selecionados
+                                    </p>
+                                    <div class="actions">
+                                       <div class="btn-group">
+                                          <button type="button" class="btn btn-default">Duplicar</button>
+                                          <a href="#" class="btn btn-default">Relatorio</a>
+                                          <a href="#" class="btn btn-default">Arquivar</a>
+                                       </div>
+                                       <button type="button" class="btn btn-danger">Excluir</button>
+                                    </div>
+                                 </div>
+                                 <table class="table ls-table" id="tabela1">
+                                    <thead>
+                                       <tr>
+                                          <th class="txt-center"><input type="checkbox"></th>
+                                          <th>Pais</th>
+                                          <th>Moedas</th>
+                                          <th class="hidden-xs">Tempo</th>
+                                          <th>Data da Cotação</th>               
+                                       </tr>
+                                    </thead>     
+               
+                                    <tbody>  
+                                         <tr class ="tl-cor" *ngFor="let item of ltRates() | keyvalue | slice:0:10 ">                  
+                                          <td class="txt-center">
+                                           <td>
+                                            <ul>
+                                               {{item.key}}
+                                            </ul>   
+                                         </td>
+                                          <td class="hidden-xs">{{item.value}}</td>
+                                          <td>{{ltTimeStap()}}</td>
+                                          <td  class="hidden-xs">{{ltDate()}}</td>
+                                       </tr>     
+                                       
+                                   
+                                    </tbody>
+                                 </table>   
+                            <!--fim-->                 
+                         </div>
+                                                         
+                       </div>
+                     </div>         
+               </main>          
+          </div>
+       <!-- fim-->
+        </div>
+      </div>
+      
+      <!-- Legenda-->
+<div class="col-lg-6"> 
+   <div class="panel panel-default">
+      <div class="panel panel-heading">
+            Legenda
+       </div>
+  <div class="panel panel-body">                  
+    <!--Tabela 2°-->
+     <main class="main">
+         <!-- Tabela de Legenda-->   
+         <div class="col-md-6 content" role="main"><!-- containner grafico 2-->
+             <!-- boxSelect info -->    
+             <div class="well hidden well-sm clearfix" data-target="tabela1">
+                 <p class="d-inline-block">
+                    <strong class="counterChecks">0</strong> itens selecionados
+                 </p>
+                 <div class="actions">
+                    <div class="btn-group">
+                       <button type="button" class="btn btn-default">Duplicar</button>
+                       <a href="#" class="btn btn-default">Relatorio</a>
+                       <a href="#" class="btn btn-default">Arquivar</a>
+                    </div>
+                    <button type="button" class="btn btn-danger">Excluir</button>
+                 </div>
+              </div>
+              <table class="table ls-table" id="tabela2">
+                 <thead>
+                    <tr>
+                       <th class="txt-center"><input type="checkbox"></th>
+                       <th>Sigla</th>  
+                       <th>Legenda</th>    
+                    </tr>
+                 </thead>
+                 <tbody>  
+                      <tr class ="tl-cor" *ngFor="let list of list_moeda |  slice:0:10">                  
+                       <td class="txt-center">
+                       <td>{{list.sigla}}</td>
+                       <td class="hidden-xs">{{list.descricao}}</td>
+                    </tr>     
+                 </tbody>
+              </table>   
+         <!--fim-->                 
+         </div>
+       </main>
+      </div>
+    </div>
+ </div>          
+   </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+           <app-layer-noticiathree></app-layer-noticiathree>
+    </div>
+  </div>
+</div> 
+  
+ <!-- Aqui começa a parte de conteúdo dividido por colunas -->
+ <main class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 content" role="main">
+                 <!-- boxSelect info -->
+             
+					<div class="well hidden well-sm clearfix" data-target="tabela1">
+                     <p class="d-inline-block">
+                        <strong class="counterChecks">0</strong> itens selecionados
+                     </p>
+                     <div class="actions">
+                        <div class="btn-group">
+                           <button type="button" class="btn btn-default">Duplicar</button>
+                           <a href="#" class="btn btn-default">Relatorio</a>
+                           <a href="#" class="btn btn-default">Arquivar</a>
+                        </div>
+                        <button type="button" class="btn btn-danger">Excluir</button>
+                     </div>
+                  </div>
+                  <table class="table ls-table" id="tabela1">
+                     <thead>
+                        <tr>
+                           <th class="txt-center"><input type="checkbox"></th>
+                           <th>Cotação em EUR</th>
+                           <th>Cotação em BRL</th>
+                           <th class="hidden-xs">Pais</th>
+                           <th>Data da Cotação</th>               
+                        </tr>
+                     </thead>
+                     <tbody>  
+                          <tr  class ="tl-cor" *ngFor="let list of listarCotacoes">  
+                           <td class="txt-center">
+                           <input type="checkbox"  checked="destaque"></td> 
+                           <td>
+                             <ul>
+                              <a href="" title="$">${{list}}</a>
+                             </ul>   
+                          </td>
+
+                           <td class="hidden-xs">Real</td>
+                           <td>status</td>
+                           <td  class="hidden-xs">{{data}} - {{data | date}}</td>
+                        </tr>
+                        <tr>
+                        </tr>
+                     </tbody>
+                  </table>   
+             <!--fim-->                 
+          </div>
+
+          
+        </div>
+      </div>
+</main>
+
+ <!-- Footer -->
+ <footer class="footer">
+      <div class="footer-menu">
+        <nav class="container">
+          <h2 class="title-footer">suporte e ajuda</h2>
+          <ul class="no-liststyle">
+            <li><a href="#" class="bg-customer-support"><span class="visible-lg">Home</span></a></li>
+            <li><a href="#" class="bg-help-desk"><span class="visible-lg">Central de Ajuda (Wiki)</span></a></li>
+            <li><a href="#" class="bg-statusblog"><span class="visible-lg">Statusblog</span></a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container footer-info">
+        <span class="last-access ico-screen"><strong>Último acesso: </strong>7/8/2011 22:35:49</span>
+        <div class="set-ip"><span class="set-ip"><strong>IP:</strong> 201.87.65.217</span></div>
+        <p class="copy-right">Copyright © 1997-2011 Rethorica Serviços de Internet S/A.</p>
+      </div>
+    </footer>
+
+

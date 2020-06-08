@@ -1,0 +1,1 @@
+export * from './layer-noticia-two.component';
